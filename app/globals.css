@@ -27,10 +27,6 @@ body {
   color: theme("colors.ink.bg");
 }
 
-textarea {
-  field-sizing: content;
-}
-
 /* Visible focus rings everywhere, not just default outline removal */
 a:focus-visible,
 button:focus-visible,

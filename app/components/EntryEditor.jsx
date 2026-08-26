@@ -136,7 +136,7 @@ export default function EntryEditor({
           value={content}
           onChange={markDirty(setContent)}
           placeholder="Write what's on your mind..."
-          className="w-full h-full min-h-[50dvh] resize-none bg-transparent outline-none px-6 sm:px-10 py-4 text-[15px] leading-relaxed text-parchment-text dark:text-ink-text placeholder:text-parchment-muted/60 dark:placeholder:text-ink-muted/60"
+          className="w-full h-full min-h-[50dvh] resize-none whitespace-pre-wrap break-words bg-transparent outline-none px-6 sm:px-10 py-4 text-[15px] leading-relaxed text-parchment-text dark:text-ink-text placeholder:text-parchment-muted/60 dark:placeholder:text-ink-muted/60"
         />
       </div>
 
