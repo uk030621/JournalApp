@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  /* Prevents the iOS "rubber band" overscroll from revealing white
+     space above/below the app when the page itself doesn't scroll. */
+  overscroll-behavior-y: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

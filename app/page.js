@@ -9,7 +9,13 @@ export default async function HomePage() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6">
+    <main
+      className="min-h-dvh flex flex-col items-center justify-center px-6"
+      style={{
+        paddingTop: "max(1.5rem, env(safe-area-inset-top))",
+        paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))",
+      }}
+    >
       <div className="max-w-xl text-center space-y-6">
         <p className="font-mono text-xs tracking-[0.3em] uppercase text-brass">
           Vol. I — Private Edition

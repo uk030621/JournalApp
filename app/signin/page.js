@@ -13,7 +13,13 @@ export default async function SignInPage({ searchParams }) {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-6">
+    <main
+      className="min-h-dvh flex items-center justify-center px-6"
+      style={{
+        paddingTop: "max(1.5rem, env(safe-area-inset-top))",
+        paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))",
+      }}
+    >
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center space-y-2">
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-brass">

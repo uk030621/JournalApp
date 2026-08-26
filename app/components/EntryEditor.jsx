@@ -136,11 +136,14 @@ export default function EntryEditor({
           value={content}
           onChange={markDirty(setContent)}
           placeholder="Write what's on your mind..."
-          className="w-full h-full min-h-[50vh] resize-none bg-transparent outline-none px-6 sm:px-10 py-4 text-[15px] leading-relaxed text-parchment-text dark:text-ink-text placeholder:text-parchment-muted/60 dark:placeholder:text-ink-muted/60"
+          className="w-full h-full min-h-[50dvh] resize-none bg-transparent outline-none px-6 sm:px-10 py-4 text-[15px] leading-relaxed text-parchment-text dark:text-ink-text placeholder:text-parchment-muted/60 dark:placeholder:text-ink-muted/60"
         />
       </div>
 
-      <div className="border-t border-parchment-border dark:border-ink-border p-3 flex items-center justify-between gap-3">
+      <div
+        className="border-t border-parchment-border dark:border-ink-border p-3 flex items-center justify-between gap-3 shrink-0"
+        style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
+      >
         <span className="font-mono text-[11px] text-parchment-muted dark:text-ink-muted">
           {wordCount(content)} words
           {!content.trim() && (

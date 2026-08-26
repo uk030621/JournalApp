@@ -134,9 +134,12 @@ export default function JournalClient({ user }) {
   };
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-dvh flex flex-col overflow-hidden">
       {/* Top bar */}
-      <header className="flex items-center justify-between gap-3 px-4 py-3 border-b border-parchment-border dark:border-ink-border shrink-0">
+      <header
+        className="flex items-center justify-between gap-3 px-4 py-3 border-b border-parchment-border dark:border-ink-border shrink-0"
+        style={{ paddingTop: "max(0.75rem, env(safe-area-inset-top))" }}
+      >
         <div className="flex items-center gap-3">
           <button
             onClick={() => setSidebarOpen((s) => !s)}
