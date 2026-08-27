@@ -146,11 +146,18 @@ export default function JournalClient({ user }) {
             className="md:hidden h-9 w-9 flex items-center justify-center rounded-md border border-parchment-border dark:border-ink-border"
             aria-label="Toggle entry list"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-          <span className="font-display text-xl">Marginalia</span>
+          <span className="font-display text-xl">Quiet Pages</span>
         </div>
 
         <StatsPanel stats={stats} />
@@ -190,7 +197,12 @@ export default function JournalClient({ user }) {
             sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
           }`}
         >
-          <SearchBar query={query} setQuery={setQuery} mood={mood} setMood={setMood} />
+          <SearchBar
+            query={query}
+            setQuery={setQuery}
+            mood={mood}
+            setMood={setMood}
+          />
           <div className="flex-1 overflow-y-auto scrollbar-thin">
             {loading && (
               <p className="p-4 text-sm text-parchment-muted dark:text-ink-muted">

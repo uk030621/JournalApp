@@ -23,7 +23,7 @@ export default async function SignInPage({ searchParams }) {
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center space-y-2">
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-brass">
-            Marginalia
+            Quiet Pages
           </p>
           <h1 className="font-display text-3xl">Welcome back</h1>
           <p className="text-sm text-parchment-muted dark:text-ink-muted">

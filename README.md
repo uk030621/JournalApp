@@ -1,4 +1,4 @@
-# Marginalia — a personal journal app
+# Quiet Pages — a personal journal app
 
 Next.js 15 (App Router) + MongoDB + Auth.js (NextAuth v5) with Google sign-in.
 

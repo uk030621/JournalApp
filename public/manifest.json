@@ -1,6 +1,6 @@
 {
-  "name": "Marginalia — a personal journal",
-  "short_name": "Marginalia",
+  "name": "Quiet Pages — a personal journal",
+  "short_name": "Quiet Pages",
   "description": "A private, searchable space for daily journaling.",
   "start_url": "/journal",
   "display": "standalone",

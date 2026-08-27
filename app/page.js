@@ -21,11 +21,11 @@ export default async function HomePage() {
           Vol. I — Private Edition
         </p>
         <h1 className="font-display text-5xl sm:text-6xl font-medium leading-[1.05]">
-          Marginalia
+          Quiet Pages
         </h1>
         <p className="text-lg text-parchment-muted dark:text-ink-muted max-w-md mx-auto">
-          A quiet, searchable place to keep what happened, how it felt, and
-          what you noticed. Just for you.
+          A quiet, searchable place to keep what happened, how it felt, and what
+          you noticed. Just for you.
         </p>
         <Link
           href="/signin"

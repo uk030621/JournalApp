@@ -23,7 +23,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: "Marginalia — a personal journal",
+  title: "Quiet Pages — a personal journal",
   description: "A private, searchable space for daily journaling.",
   manifest: "/manifest.json",
   icons: {
@@ -36,7 +36,7 @@ export const metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Marginalia",
+    title: "Quiet Pages",
   },
 };
 
