@@ -26,7 +26,7 @@ export default function SearchBar({ query, setQuery, mood, setMood }) {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search entries, tags..."
           aria-label="Search entries"
-          className="w-full bg-parchment-surface2 dark:bg-ink-surface2 border border-parchment-border dark:border-ink-border rounded-md py-2 pl-8 pr-3 text-sm placeholder:text-parchment-muted dark:placeholder:text-ink-muted focus:border-brass outline-none"
+          className="w-full bg-parchment-surface2 dark:bg-ink-surface2 border border-parchment-border dark:border-ink-border rounded-md py-2 pl-8 pr-3 text-base placeholder:text-parchment-muted dark:placeholder:text-ink-muted focus:border-brass outline-none"
         />
       </div>
       <div className="flex gap-1 overflow-x-auto scrollbar-thin pb-1">

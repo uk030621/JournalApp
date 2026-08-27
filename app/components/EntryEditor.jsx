@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MoodPicker from "./MoodPicker";
 
 function wordCount(text) {
@@ -24,6 +24,8 @@ export default function EntryEditor({
     new Date().toISOString().slice(0, 10)
   );
   const [dirty, setDirty] = useState(false);
+  const titleRef = useRef(null);
+  const contentRef = useRef(null);
 
   useEffect(() => {
     if (entry) {
@@ -41,6 +43,18 @@ export default function EntryEditor({
     }
     setDirty(false);
   }, [entry?._id, isNew]);
+
+  // Auto-grow the title textarea to fit wrapped text — it only
+  // resizes correctly on user typing by default, not when `title`
+  // is set programmatically (e.g. switching entries), so this runs
+  // on every change to title regardless of source.
+  useEffect(() => {
+    const el = titleRef.current;
+    if (el) {
+      el.style.height = "auto";
+      el.style.height = `${el.scrollHeight}px`;
+    }
+  }, [title]);
 
   const handleSave = () => {
     if (!content.trim()) return;
@@ -80,11 +94,19 @@ export default function EntryEditor({
     <div className="flex-1 flex flex-col min-h-0">
       <div className="border-b border-parchment-border dark:border-ink-border p-4 space-y-3">
         <div className="flex items-start justify-between gap-3">
-          <input
+          <textarea
+            ref={titleRef}
+            rows={1}
             value={title}
             onChange={markDirty(setTitle)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                contentRef.current?.focus();
+              }
+            }}
             placeholder="Entry title (optional)"
-            className="font-display text-2xl sm:text-3xl bg-transparent outline-none flex-1 min-w-0 placeholder:text-parchment-muted/60 dark:placeholder:text-ink-muted/60"
+            className="font-display text-2xl sm:text-3xl bg-transparent outline-none flex-1 min-w-0 resize-none overflow-hidden whitespace-pre-wrap break-words leading-tight placeholder:text-parchment-muted/60 dark:placeholder:text-ink-muted/60"
           />
           <div className="flex items-center gap-2 shrink-0">
             {entry && (
@@ -120,23 +142,24 @@ export default function EntryEditor({
             type="date"
             value={entryDate}
             onChange={markDirty(setEntryDate)}
-            className="font-mono text-xs bg-parchment-surface2 dark:bg-ink-surface2 border border-parchment-border dark:border-ink-border rounded-md px-2 py-1.5 outline-none focus:border-brass"
+            className="font-mono text-base bg-parchment-surface2 dark:bg-ink-surface2 border border-parchment-border dark:border-ink-border rounded-md px-2 py-1.5 outline-none focus:border-brass"
           />
           <input
             value={tagsInput}
             onChange={markDirty(setTagsInput)}
             placeholder="tags, comma separated"
-            className="flex-1 min-w-[140px] font-mono text-xs bg-parchment-surface2 dark:bg-ink-surface2 border border-parchment-border dark:border-ink-border rounded-md px-2 py-1.5 outline-none focus:border-brass placeholder:text-parchment-muted dark:placeholder:text-ink-muted"
+            className="flex-1 min-w-[140px] font-mono text-base bg-parchment-surface2 dark:bg-ink-surface2 border border-parchment-border dark:border-ink-border rounded-md px-2 py-1.5 outline-none focus:border-brass placeholder:text-parchment-muted dark:placeholder:text-ink-muted"
           />
         </div>
       </div>
 
       <div className="flex-1 overflow-y-auto scrollbar-thin border-l-2 border-brass/30">
         <textarea
+          ref={contentRef}
           value={content}
           onChange={markDirty(setContent)}
           placeholder="Write what's on your mind..."
-          className="w-full h-full min-h-[50dvh] resize-none whitespace-pre-wrap break-words bg-transparent outline-none px-6 sm:px-10 py-4 text-[15px] leading-relaxed text-parchment-text dark:text-ink-text placeholder:text-parchment-muted/60 dark:placeholder:text-ink-muted/60"
+          className="w-full h-full min-h-[50dvh] resize-none whitespace-pre-wrap break-words bg-transparent outline-none px-6 sm:px-10 py-4 text-base leading-relaxed text-parchment-text dark:text-ink-text placeholder:text-parchment-muted/60 dark:placeholder:text-ink-muted/60"
         />
       </div>
 
